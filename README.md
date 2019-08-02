@@ -41,7 +41,7 @@
 	```javascript
 		const HtmlWebpackPlugin = require('html-webpack-plugin')
 		plugins: [new HtmlWebpackPlugin({
-			filename: 'index.html',
+			filename: 'app',
 			template: path.resolve(__dirname, 'index.html')
 		})]
 	```
@@ -81,3 +81,9 @@
 			filename: '[name].bundle.js'
 		}
 	```
+
+- 清理文件
+	- 每次 打包以后 都会在dist文件夹中生成一些文件 有的文件也许已经废弃不要了 那么就可以使用插件 使得每一次打包时都把文件夹清理一遍
+	`yarn add clean-webpack-plugin`
+	`const {CleanWebpackPlugin} = require('clean-webpack-plugin')`
+	`plugins: [new CleanWebpackPlugin()]`
