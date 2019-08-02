@@ -14,6 +14,7 @@ module.exports = {
 	entry,
 	output,
 	plugins: [html, clean],
+	devtool: 'cheap-module-eval-source-map',
 	module: {
 		rules: [style, image]
 	}
