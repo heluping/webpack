@@ -3,11 +3,11 @@ const HtmlWebpackPlugin = require('html-webpack-plugin')
 const {
 	CleanWebpackPlugin
 } = require('clean-webpack-plugin')
+const webpack = require('webpack')
 
 //出入口
 const entry = {
-	index: path.resolve(__dirname, '../src/index.js'),
-	app: path.resolve(__dirname, '../src/app.js')
+	index: path.resolve(__dirname, '../src/index.js')
 }
 
 const output = {
@@ -25,6 +25,9 @@ const html = new HtmlWebpackPlugin({
 
 const clean = new CleanWebpackPlugin()
 
+const NamedModulesPlugin = new webpack.NamedModulesPlugin()
+
+const HotModuleReplacementPlugin = new webpack.HotModuleReplacementPlugin()
 
 //通用  配置css 图片 等
 const rules = (reg, ...loader) => {
@@ -43,6 +46,8 @@ module.exports = {
 	output,
 	html,
 	clean,
+	NamedModulesPlugin,
+	HotModuleReplacementPlugin,
 	style,
 	image
 }

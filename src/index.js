@@ -1,5 +1,1 @@
-import {
-	a
-} from './app'
-
-console.log(ni)
+console.log(21111)
