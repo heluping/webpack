@@ -24,8 +24,8 @@ const rules = (reg, ...loader) => {
 	}
 }
 
-const style = rules(/\.css$|\.sass$|\.scss$/, 'style-loader', 'css-loader', 'sass-loader')
-const image = rules(/\.jpg$|\.png$|\.gif$|\.svg$/, 'file-loader')
+const style = rules(/\.(css|sass|scss)$/, 'style-loader', 'css-loader', 'sass-loader')
+const image = rules(/\.(jpg|png|gif|svg)$/, 'file-loader')
 
 
 module.exports = {
