@@ -1,4 +1,5 @@
-import './index.scss';
+import {
+	a
+} from './app'
 
-let root = document.querySelector('#root')
-root.innerHTML += `<div>hello world</div>`
+console.log(a)

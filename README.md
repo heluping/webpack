@@ -65,8 +65,19 @@
 	- 此时可以在js中通过import方法引入样式表了，在index.html中会生成一个style标签 标签内就是引入的xxx.css的内容
 	- 同理，对于scss、less、图片等文件也是利用其对应的loader，然后进行此操作
 
-- 其它问题
+- 修改webpack.config.js在目录中的位置
 	- 如果想更改webpack.config.js在文件夹中的位置，比如想放在 config/webpack.config.js 也是可以的
 	修改package.json文件
 	`"script": "webpack-dev-server --open --config config/webpack.config.js"` 
-	
+
+- 多入口多出口
+	```javascript
+		entry: {
+			index: path.resolve(__dirname, 'src/index.js'),
+			app: path.resolve(__dirname, 'src/app.js')
+		},
+		output: {
+			path: path.resolve(__dirname, 'dist'),
+			filename: '[name].bundle.js'
+		}
+	```

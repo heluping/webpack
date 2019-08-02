@@ -2,11 +2,14 @@ const path = require('path')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 
 
-const entry = path.resolve(__dirname, '../src/index.js')
+const entry = {
+	index: path.resolve(__dirname, '../src/index.js'),
+	app: path.resolve(__dirname, '../src/app.js')
+}
 
 const output = {
 	path: path.resolve(__dirname, '../dist'),
-	filename: 'bundle.js'
+	filename: '[name].bundle.js'
 }
 
 //html插件

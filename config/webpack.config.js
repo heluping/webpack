@@ -9,7 +9,7 @@ const {
 
 
 module.exports = {
-	mode: 'development',
+	mode: 'production',
 	entry,
 	output,
 	plugins: [html],

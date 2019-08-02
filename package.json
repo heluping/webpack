@@ -5,7 +5,8 @@
 	"private": true,
 	"license": "MIT",
 	"scripts": {
-		"start": "webpack-dev-server --open --config config/webpack.config.js"
+		"start": "webpack-dev-server --open --config config/webpack.config.js",
+		"build": "node build/build.js"
 	},
 	"dependencies": {
 		"css-loader": "^3.1.0",
