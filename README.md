@@ -132,7 +132,7 @@
 - 抽取公共依赖，生成公共文件
 	- 将vue或者react、axios、lodash等抽取出来生成一个vendor.js文件等操作
 	
-
+	```javascript
     optimization : {     //和entry output同级
     		splitChunks: {
     			cacheGroups: {
@@ -152,3 +152,4 @@
     			}
     		}
     	}
+    ```
