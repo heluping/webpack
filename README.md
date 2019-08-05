@@ -169,4 +169,4 @@
 		plugins: [new webpackProvidePlugin({
 			_: 'lodash'
 		})]
-	```
+	  ```
