@@ -155,3 +155,6 @@
     ```
     - extract-text-webpack-plugin 则可以分离css
     - 动态引入 类似于 `import('lodash').then(_=>{console.log(_)})` 这种语法 在执行的时候才去引入依赖，只需要在入口文件中新加字段 `chunkFilename: '[name].bundle.js'`
+
+- 懒加载
+	- 和动态引入类似
