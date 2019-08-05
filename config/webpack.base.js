@@ -7,12 +7,12 @@ const webpack = require('webpack')
 
 //出入口
 const entry = {
-	index: path.resolve(__dirname, '../src/index.js'),
-	home: path.resolve(__dirname, '../src/home.js')
+	index: path.resolve(__dirname, '../src/index.js')
 }
 
 const output = {
 	path: path.resolve(__dirname, '../dist'),
+	chunkFilename: '[name].bundle.js',
 	filename: '[name].bundle.js'
 }
 

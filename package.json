@@ -9,6 +9,7 @@
 		"build": "webpack --config config/webpack.pro.js"
 	},
 	"dependencies": {
+		"@babel/plugin-syntax-dynamic-import": "^7.2.0",
 		"clean-webpack-plugin": "^3.0.0",
 		"css-loader": "^3.1.0",
 		"file-loader": "^4.1.0",
