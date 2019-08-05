@@ -103,3 +103,28 @@
 	只保留用到的代码
 	- `sideEffects: ['../../src/test.js']` 表示忽略这个文件 因为里面具有副作用
 	- 压缩输出（删除未引用的代码），将webpack的 `mode: production` 即可以启动亚索输出
+
+- 开发环境和生产环境的分离(开发环境中需要本地服务器以及热更新等而生产环境只需要尽量小的压缩文件)
+	- 需要用到 webpack-merge 以及 uglifyjs-webpack-plugin两个插件，所以可以先安装 `yarn add webpack-merge` `yarn add uglifyjs-webpack-plugin`
+
+	- 既然要分离，则要新建一个 webpack.dev.js 以及webpack.pro.js 文件，分别做对应的功能。同时，也保留之前的webpack.config.js文件，里面是通用代码。
+
+	- 在两个文件中引入通用文件，并做各自的拓展
+		```javascript
+		//webpack.dev.js
+		const merge = require('webpack-merge')
+		const common = require('./webpack.config.js')
+		module.exports = merge(common, {
+			devtool: 'inline-source-map',
+			devServer: {
+				contentBase: '../dist'
+			}
+		})
+		//webpack.pro.js
+		const UglifyJsPlugin = require('uglifyjs-webpack-plugin')
+		module.exports = merge(common, {
+			plugins: [new UglifyJsPlugin()]
+			})
+		```
+	- 配置package.json中的 scripts字段
+		- `"start": "webpack-dev-server --open --config config/webpack.dev.js"`   `"build": "webpack --config config/webpack.pro.js"`

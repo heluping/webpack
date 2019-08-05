@@ -23,9 +23,6 @@ const html = new HtmlWebpackPlugin({
 
 const clean = new CleanWebpackPlugin()
 
-const NamedModulesPlugin = new webpack.NamedModulesPlugin()
-
-const HotModuleReplacementPlugin = new webpack.HotModuleReplacementPlugin()
 
 //通用  配置css 图片 等
 const rules = (reg, ...loader) => {
@@ -44,8 +41,6 @@ module.exports = {
 	output,
 	html,
 	clean,
-	NamedModulesPlugin,
-	HotModuleReplacementPlugin,
 	style,
 	image
 }

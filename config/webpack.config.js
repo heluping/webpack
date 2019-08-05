@@ -3,8 +3,6 @@ const {
 	output,
 	html,
 	clean,
-	NamedModulesPlugin,
-	HotModuleReplacementPlugin,
 	style,
 	image
 } = require('./webpack.base')
@@ -15,11 +13,7 @@ module.exports = {
 	mode: 'production',
 	entry,
 	output,
-	devServer: {
-		contentBase: '../dist',
-		hot: true
-	},
-	plugins: [html, clean, NamedModulesPlugin, HotModuleReplacementPlugin],
+	plugins: [html, clean],
 	module: {
 		rules: [style, image]
 	}
