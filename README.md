@@ -158,3 +158,15 @@
 
 - 懒加载
 	- 和动态引入类似
+
+
+- 缓存（让每次生成的名字不一样，即可以不被缓存了）
+	- 使用hash命名 `output:{ filename: [name].[chunkhash].js`
+
+
+- shimming 全局变量(即无需引入 就可以在对应的地方或许到相应的变量) 和externals还是有区别的，externals是利用cnd引入依赖，而此处的依赖还是要打包进vendor.js里面的
+	- ```javascript
+		plugins: [new webpackProvidePlugin({
+			_: 'lodash'
+		})]
+	```

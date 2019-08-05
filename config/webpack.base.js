@@ -13,7 +13,7 @@ const entry = {
 const output = {
 	path: path.resolve(__dirname, '../dist'),
 	chunkFilename: '[name].bundle.js',
-	filename: '[name].bundle.js'
+	filename: '[name].[chunkhash].js'
 }
 
 
@@ -25,6 +25,10 @@ const html = new HtmlWebpackPlugin({
 })
 
 const clean = new CleanWebpackPlugin()
+
+const providePlugin = new webpack.ProvidePlugin({
+	_: 'lodash'
+})
 
 
 //代码分离
@@ -49,6 +53,11 @@ const optimization = {
 }
 
 
+const externals = {
+	lodash: '_'
+}
+
+
 //通用  配置css 图片 等
 const rules = (reg, ...loader) => {
 	return {
@@ -66,7 +75,9 @@ module.exports = {
 	output,
 	html,
 	clean,
+	providePlugin,
 	optimization,
+	externals,
 	style,
 	image
 }

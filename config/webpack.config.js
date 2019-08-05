@@ -3,7 +3,9 @@ const {
 	output,
 	html,
 	clean,
+	providePlugin,
 	optimization,
+	externals,
 	style,
 	image
 } = require('./webpack.base')
@@ -13,7 +15,8 @@ const {
 module.exports = {
 	entry,
 	output,
-	plugins: [html, clean],
+	// externals: externals,
+	plugins: [html, clean, providePlugin],
 	optimization: optimization,
 	module: {
 		rules: [style, image]
