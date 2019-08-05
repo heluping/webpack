@@ -1,6 +1,3 @@
-import {
-	add
-} from './data'
+import _ from 'lodash'
 
-
-add()
+console.log(_.join([1, 2, 3], '+'))

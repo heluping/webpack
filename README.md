@@ -128,3 +128,28 @@
 		```
 	- 配置package.json中的 scripts字段
 		- `"start": "webpack-dev-server --open --config config/webpack.dev.js"`   `"build": "webpack --config config/webpack.pro.js"`
+
+- 抽取公共依赖，生成公共文件
+	- 将vue或者react、axios、lodash等抽取出来生成一个vendor.js文件等操作
+	- ```javascript
+	optimization : {     //和entry output同级
+	splitChunks: {
+		cacheGroups: {
+			commons: {
+				chunks: "initial",
+				minChunks: 2,
+				maxInitialRequests: 5,
+				minSize: 0
+			},
+			vendor: {
+				test: /node_modules/,
+				chunks: "initial",
+				name: "vendor",
+				priority: 10,
+				enforce: true
+			}
+		}
+	}
+}
+	```
+	

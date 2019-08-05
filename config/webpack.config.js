@@ -3,6 +3,7 @@ const {
 	output,
 	html,
 	clean,
+	optimization,
 	style,
 	image
 } = require('./webpack.base')
@@ -10,10 +11,10 @@ const {
 
 
 module.exports = {
-	mode: 'production',
 	entry,
 	output,
 	plugins: [html, clean],
+	optimization: optimization,
 	module: {
 		rules: [style, image]
 	}

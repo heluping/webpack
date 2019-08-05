@@ -6,7 +6,10 @@ const {
 const webpack = require('webpack')
 
 //出入口
-const entry = path.resolve(__dirname, '../src/index.js')
+const entry = {
+	index: path.resolve(__dirname, '../src/index.js'),
+	home: path.resolve(__dirname, '../src/home.js')
+}
 
 const output = {
 	path: path.resolve(__dirname, '../dist'),
@@ -22,6 +25,28 @@ const html = new HtmlWebpackPlugin({
 })
 
 const clean = new CleanWebpackPlugin()
+
+
+//代码分离
+const optimization = {
+	splitChunks: {
+		cacheGroups: {
+			commons: {
+				chunks: "initial",
+				minChunks: 2,
+				maxInitialRequests: 5,
+				minSize: 0
+			},
+			vendor: {
+				test: /node_modules/,
+				chunks: "initial",
+				name: "vendor",
+				priority: 10,
+				enforce: true
+			}
+		}
+	}
+}
 
 
 //通用  配置css 图片 等
@@ -41,6 +66,7 @@ module.exports = {
 	output,
 	html,
 	clean,
+	optimization,
 	style,
 	image
 }
