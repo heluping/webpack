@@ -97,3 +97,9 @@
 
 - 热更新(hot module replacement)
 	- [参考链接](https://www.webpackjs.com/guides/hot-module-replacement/ "参考链接")
+
+- tree shaking(移除未引用代码)
+	- 在package.json文件中添加 `sideEffects: false` 表示所有的包都不含副作用，即可以安全的移除其中的export关键字
+	只保留用到的代码
+	- `sideEffects: ['../../src/test.js']` 表示忽略这个文件 因为里面具有副作用
+	- 压缩输出（删除未引用的代码），将webpack的 `mode: production` 即可以启动亚索输出

@@ -1,1 +1,6 @@
-console.log(21111)
+import {
+	add
+} from './data'
+
+
+add()

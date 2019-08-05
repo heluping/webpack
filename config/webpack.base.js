@@ -6,9 +6,7 @@ const {
 const webpack = require('webpack')
 
 //出入口
-const entry = {
-	index: path.resolve(__dirname, '../src/index.js')
-}
+const entry = path.resolve(__dirname, '../src/index.js')
 
 const output = {
 	path: path.resolve(__dirname, '../dist'),
