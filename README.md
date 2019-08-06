@@ -170,3 +170,34 @@
 			_: 'lodash'
 		})]
 	  ```
+
+
+- typescript
+	- 首先要使用两个依赖 `yarn add typescript ts-loader`
+	- 新建 tsconfig.js
+		```javascript
+			{
+				"compilerOptions": {
+					"outDir": "./dist/",
+					"noImplicitAny": true,
+					"module": "es6",
+					"target": "es5",
+					"jsx": "react",
+					"allowJs": true
+				}
+			}
+		```
+	- 配置webpack
+		```javascript
+			entry: path.resolve(__dirname, 'src/index.ts'),
+			module: {
+				rules: [{
+					test: /.tsx?$/,
+					use: 'ts-loader',
+					exclude: /node_modules/
+				}]
+			},
+			resolve: {
+    			extensions: [ '.tsx', '.ts', '.js' ]
+  			}
+		```

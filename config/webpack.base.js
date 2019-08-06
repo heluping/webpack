@@ -7,7 +7,7 @@ const webpack = require('webpack')
 
 //出入口
 const entry = {
-	index: path.resolve(__dirname, '../src/index.js')
+	index: path.resolve(__dirname, '../src/index.ts')
 }
 
 const output = {
@@ -26,9 +26,6 @@ const html = new HtmlWebpackPlugin({
 
 const clean = new CleanWebpackPlugin()
 
-const providePlugin = new webpack.ProvidePlugin({
-	_: 'lodash'
-})
 
 
 //代码分离
@@ -68,6 +65,13 @@ const rules = (reg, ...loader) => {
 
 const style = rules(/\.(css|sass|scss)$/, 'style-loader', 'css-loader', 'sass-loader')
 const image = rules(/\.(jpg|png|gif|svg)$/, 'file-loader')
+const ts = {
+	test: /\.tsx?$/,
+	use: 'ts-loader',
+	exclude: /node_modules/
+}
+
+const extensions = ['.tsx', '.ts', '.js']
 
 
 module.exports = {
@@ -75,9 +79,10 @@ module.exports = {
 	output,
 	html,
 	clean,
-	providePlugin,
 	optimization,
 	externals,
 	style,
-	image
+	image,
+	ts,
+	extensions
 }
