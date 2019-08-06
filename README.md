@@ -201,3 +201,4 @@
     			extensions: [ '.tsx', '.ts', '.js' ]
   			}
 		```
+	- 使用其它库的时候要重新安装ts的声明 `yarn add types/lodash` 其它的可以参考 [参考链接](http://microsoft.github.io/TypeSearch/)
